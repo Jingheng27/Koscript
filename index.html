@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koscript INC -En mantenimiento</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(-45deg, #000000, #434343, #727272, #9e9d9d);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 10s infinite alternate;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            cursor: url('./images/cursor+.png'), pointer;
+        }
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .cursor {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .header img {
+            margin: 10px;
+            max-width: 80px;
+            height: auto;
+        }
+        .header h2 {
+            margin: 10px 20px 0;
+            font-size: 1.8rem;
+        }
+        .container {
+            max-width: 90%;
+            width: 600px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out;
+            margin-top: 100px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+        .loader {
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('https://i.imgur.com/axJmE8W.png');
+            background-size: cover;
+            animation: wave 5s infinite linear;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes wave {
+            0% { background-position-x: 0; }
+            100% { background-position-x: 1000px; }
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .container {
+                width: 90%;
+                padding: 15px;
+                margin-top: 80px;
+            }
+            .loader {
+                width: 40px;
+                height: 40px;
+            }
+            .header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="header">
+        <img src="./images/koscriptnegro.png" alt="Logo de Koscript INC">
+        <h2>Koscript INC</h2>
+    </div>
+    <div class="container">
+        <h1>¡Estamos en mantenimiento!</h1>
+        <p>Estamos trabajando para mejorar nuestra web y ofrecerte una mejor experiencia.</p>
+        <p>Gracias por tu paciencia. Volveremos pronto con grandes novedades.</p>
+        <div class="loader"></div>
+        <p>Si necesitas ponerte en contacto con nosotros, escríbenos a <strong>contact.koscript@gmail.com</strong></p>
+    </div>
+    <div class="wave"></div>
+    <script>
+        const cursor = document.getElementById("cursor");
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+    </script>
+</body>
+</html>
